@@ -1,0 +1,23 @@
+{
+  "name": "fac-watch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "test": "node ./tests/test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "FAC-WATCH"
+  },
+  "author": "Aseel",
+  "license": "ISC",
+  "dependencies": {
+    "env2": "^2.2.0",
+    "istanbul": "^0.4.5",
+    "nodemon": "^1.11.0",
+    "shot": "^3.4.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  }
+}
