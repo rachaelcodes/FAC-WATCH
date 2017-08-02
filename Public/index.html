@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <title>FAC-watch ;)</title>
+</head>
+
+<body>
+  <header>FACwatch!</header>
+
+  <nav class='nav'>
+    <ul>
+      <li><a href='#findfilm'>Find a Film</a></li>
+      <li><a href='#reviewfilm'>Review a Film</a></li>
+    </ul>
+  </nav>
+
+  <section id='findfilm'>
+
+    <form id='findform' action="/find-film" method="get">
+      <label for='genre'>Select Film Genre:</label>
+
+  <select name='genre'>
+      <option value="Action<">Action</option>
+      <option value="Animation">Animation</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Documentary">Documentary</option>
+      <option value="Drama<">Drama</option>
+      <option value="Family friendly">Family friendly</option>
+      <option value="Horror">Horror</option>
+      <option value="Romance">Romance</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      <option value="Thriller">Thriller</option>
+</select>
+
+    </form>
+
+  </section>
+
+
+  <section id='reviewfilm'>
+  <form method='post' action="/review-film">
+
+      <input type='text' name=''
+
+
+  </form>
+
+  </section>
+
+
+</body>
+
+</html>
