@@ -7,17 +7,17 @@ const dbConnections = require('./Databases/db-connections.js');
 const getData = require('./Queries/get-data.js');
 const postData = require('./Queries/post-data.js');
 
-const router = (req, res) => {
+const router = (req, response) => {
 
   if (req.url === '/') {
     fs.readFile(__dirname + "/../Public/index.html", function(error, file) {
       if (error) {
-        res.writeHead(500, 'Content-Type:text/html');
-        res.end('<h1>Sorry, our homepage is sleeping</h1>');
+        response.writeHead(500, 'Content-Type:text/html');
+        response.end('<h1>Sorry, our homepage is sleeping</h1>');
 
       }else {
-        res.writeHead(200, {"Content-Type":"text/html"});
-        res.end(file);
+        response.writeHead(200, {"Content-Type":"text/html"});
+        response.end(file);
       }
     });
   } else if (req.url.includes("/pick-a-genre/")){
@@ -28,8 +28,9 @@ const router = (req, res) => {
       response.writeHead(500, 'Content-Type: test/html');
       response.end('<h1>Sorry our librarian left!</h1>');
     } else {
-      console.log(`${res} is awesome!`);
+
       let output = JSON.stringify(res);
+      console.log(output);
       response.writeHead(200, {
           'content-type': 'application/json'
       });
@@ -43,12 +44,12 @@ const router = (req, res) => {
   const fileType = req.url.split(".")[1];
 fs.readFile(__dirname + "/../Public" + fileName, function(error, file) {
   if (error) {
-    res.writeHead(500, 'Content-Type:text/html');
-    res.end('<h1>Sorry, our homepage is sleeping</h1>');
+    response.writeHead(500, 'Content-Type:text/html');
+    response.end('<h1>Sorry, our homepage is sleeping</h1>');
 
   }else {
-    res.writeHead(200, {"Content-Type":"text/" + fileType});
-    res.end(file);
+    response.writeHead(200, {"Content-Type":"text/" + fileType});
+    response.end(file);
   }
 
 });
