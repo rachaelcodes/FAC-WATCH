@@ -115,7 +115,12 @@ tape('Validate Rating', (t) => {
   t.end();
 })
 
+tape('validateAll', (t) => {
+  let result = validate.validateAll("Bill", "London", "Grease", 11, "", 3);
 
+  t.deepEqual(result.message, 'Please Enter your description', 'ValidateAll is working')
+  t.end();
+})
 
 tape('get Data', (t)=> {
   dbbuild;
@@ -144,6 +149,7 @@ tape('get Data', (t)=> {
     t.end();
   })
 })
+
 
 
 tape('Post Data', (t)=> {

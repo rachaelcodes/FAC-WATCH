@@ -55,7 +55,7 @@
     <h2>Recommend a film to FACcers:</h2>
     <form id='recommendfilm' method='post' action="/review-film">
       <label for="name">Your name:</label>
-      <input id='name' type="text"><br>
+      <input id='name' name="name" type="text"><br>
       <label for="location">FAC location:</label>
       <input id='location' type="text"><br>
       <label for="cohort">Cohort number:</label>
@@ -81,6 +81,9 @@
       <button type="submit" name="reviewsubmit">Review a film!</button>
 
     </form>
+    <section id="error-message">
+
+    </section>
 
   </section>
 </div>

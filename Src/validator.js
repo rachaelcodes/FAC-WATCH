@@ -1,4 +1,29 @@
 //write validators for movie name, rating, and description.  dont forget to do tests aswell !
+const validateAll = (faccer, faclocation, moviename, cohort, description, rating) => {
+  try {
+    if (!validateFaccer(faccer).isValid) {
+      throw new Error (validateFaccer(faccer).message);
+    } else if (!validateFaclocation(faclocation).isValid) {
+      throw new Error (validateFaclocation(faclocation).message);
+    }
+    else if (!validateMoviename(moviename).isValid) {
+      throw new Error (validateMoviename(moviename).message);
+    }
+    else if (!validateCohort(cohort).isValid) {
+      throw new Error (validateCohort(cohort).message);
+    }
+    else if (!validateDescription(description).isValid) {
+      throw new Error (validateDescription(description).message);
+    }
+    else if (!validateRating(rating).isValid) {
+      throw new Error (validateRating(rating).message);
+    }
+    return {isValid:true};
+  }
+  catch(e) {
+    return {isValid:false, message: e.message};
+  }
+}
 
 const validateFaccer = (faccer) => {
   try {
@@ -87,4 +112,4 @@ const validateRating = (rating) => {
 
 };
 
-module.exports = {validateFaccer,validateFaclocation,validateCohort, validateDescription, validateMoviename, validateRating};
+module.exports = {validateFaccer,validateFaclocation,validateCohort, validateDescription, validateMoviename, validateRating, validateAll};

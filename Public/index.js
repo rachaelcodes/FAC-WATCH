@@ -36,10 +36,23 @@ console.log(checkedValue);
 
   var url = "/review-film/";
 
-  getApi(url, appendData);
+  postApi(url, appendData);
 });
 
 function getApi(url, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      cb(null, xhr.responseText);
+    } else {
+      cb("error" + xhr.responseType);
+    }
+  }
+  xhr.open("GET", url, true);
+  xhr.send();
+}
+
+function postApi(url, cb) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
