@@ -47,7 +47,6 @@ else if (req.url.split('/')[1] === 'review-film') {
   });
   req.on('end', () => {
     console.log('request made');
-    console.log('data', data);
       const name = queryString.parse(data).name;
       console.log('name', name);
       const location = queryString.parse(data).location;
