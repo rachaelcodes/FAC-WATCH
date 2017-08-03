@@ -3,6 +3,7 @@ const tape = require('tape');
 const validate = require( '../src/validator');
 const getData = require('../src/queries/get-data');
 const dbConnectionTest = require ('./db-connections-test.js');
+const postData = require('../src/queries/post-data');
 
 tape('Validate Faccer', (t) => {
   let result = validate.validateFaccer (333) ;
@@ -77,6 +78,34 @@ tape('get Data', (t)=> {
   getData('thriller', dbConnectionTest, (err, result)=>{
     if (err) console.log(err);
     t.deepEqual(result, expected, 'getData returns expected data');
+    t.end();
+  })
+})
+
+
+tape('Post Data', (t)=> {
+  let expected = [{
+    id: 5,
+    faccer: 'Minesh',
+    cohort: 11,
+    faclocation: 'London',
+    moviename: 'The Hangover',
+    rating: 5,
+    description: 'When in Vegas...',
+    action: false,
+    animation: false,
+    comedy: true,
+    documentary: false,
+    drama: false,
+    familyfriendly: false,
+    horror: false,
+    romance: false,
+    scifi: false,
+    thriller: false
+  }];
+  postData('Minesh', 11, 'London', 'The Hangover', 5, 'When in Vegas...', false, false, true, false, false, false, false, false, false, false, dbConnectionTest, (err, result)=>{
+    if (err) console.log(err);
+    t.deepEqual(result, expected, 'PostData returns expected data');
     t.end();
   })
 })

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "istanbul cover ./tests/test.js node ./tests/test.js | tap-spec",
-    "coverage":"istanbul cover ./tests/test.js"
+    "coverage": "istanbul cover ./tests/test.js"
   },
   "repository": {
     "type": "git",
