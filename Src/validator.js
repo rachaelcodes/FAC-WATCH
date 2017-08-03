@@ -1,3 +1,5 @@
+//write validators for movie name, rating, and description.  dont forget to do tests aswell !
+
 const validateFaccer = (faccer) => {
   try {
     if (typeof faccer !== 'string') {
