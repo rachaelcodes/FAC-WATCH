@@ -58,3 +58,5 @@ typings/
 .env
 
 config.env
+
+.DS_Store
