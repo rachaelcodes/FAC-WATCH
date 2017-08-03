@@ -42,6 +42,24 @@ tape('Validate Location', (t) => {
   t.end();
 })
 
+tape('Validate Movie Name', (t) => {
+  let result = validate.validateMoviename (333) ;
+  t.equal(result.message, 'Your movie name must be a string', 'Correct error message is supplied when we pass in a number');
+  t.notOk(result.isValid, 'Invalid entry returns false');
+
+  result = validate.validateMoviename('Night of the Day of the Dawn of the Son of the Bride of the Return of the Revenge of the Terror of the Attack of the Evil')
+  t.equal(result.message, 'Your movie name is too long', "Correct error message for long names" )
+  t.notOk(result.isValid, 'Long string returns false');
+
+  result = validate.validateMoviename('')
+  t.equal(result.message, 'Please Enter your movie name', "Correct error message for empty name" )
+  t.notOk(result.isValid, 'No name input returns false');
+
+   result = validate.validateMoviename ('American Beauty');
+  t.ok(result.isValid, 'Valid string returns true');
+
+  t.end();
+})
 
 tape('Validate Cohort', (t) => {
   let result = validate.validateCohort (333.2) ;
@@ -57,6 +75,47 @@ tape('Validate Cohort', (t) => {
 
   t.end();
 })
+
+tape('Validate Description', (t) => {
+  let result = validate.validateDescription(333.2) ;
+  t.equal(result.message, 'Your description must be a string', 'validateDescription provides correct error message');
+  t.notOk(result.isValid, 'Invalid description returns false');
+
+  result = validate.validateDescription("");
+  t.equal(result.message, 'Please Enter your description', 'validateDescription provides correct error message');
+  t.notOk(result.isValid, 'Empty description returns false');
+
+
+   result = validate.validateDescription ("Amazing film");
+  t.ok(result.isValid, 'Valid description returns true');
+
+  t.end();
+})
+
+tape('Validate Rating', (t) => {
+  let result = validate.validateRating (3.2) ;
+  t.equal(result.message, 'Your rating value must be an integer', 'Correct error message is supplied when we pass in a decimal');
+  t.notOk(result.isValid, 'Invalid number returns false');
+
+  result = validate.validateRating ('eleven') ;
+  t.equal(result.message, 'Your rating value must be an integer', 'Correct error message is supplied when we pass in a string');
+  t.notOk(result.isValid, 'Invalid string returns false');
+
+  result = validate.validateRating (0) ;
+  t.equal(result.message, 'Your rating should be in the range of 1 to 5', 'Correct error message is supplied when we pass in a low number');
+  t.notOk(result.isValid, 'Invalid string returns false');
+
+  result = validate.validateRating (6) ;
+  t.equal(result.message, 'Your rating should be in the range of 1 to 5', 'Correct error message is supplied when we pass in a high number');
+  t.notOk(result.isValid, 'Invalid string returns false');
+
+   result = validate.validateRating (3);
+  t.ok(result.isValid, 'Valid rating number returns true');
+
+  t.end();
+})
+
+
 
 tape('get Data', (t)=> {
   dbbuild;
