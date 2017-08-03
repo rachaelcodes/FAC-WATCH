@@ -1,6 +1,8 @@
 // Test get data and post data functions
 const tape = require('tape');
 const validate = require( '../src/validator');
+const getData = require('../src/queries/get-data');
+const dbConnectionTest = require ('./db-connections-test.js');
 
 tape('Validate Faccer', (t) => {
   let result = validate.validateFaccer (333) ;
@@ -50,4 +52,31 @@ tape('Validate Cohort', (t) => {
   t.ok(result.isValid, 'Valid cohort number returns true');
 
   t.end();
+})
+
+tape('get Data', (t)=> {
+  let expected = [{
+    id: 3,
+    faccer: 'Yahia',
+    cohort: 11,
+    faclocation: 'London',
+    moviename: 'Batman: Dark Knight',
+    rating: 5,
+    description: 'Good for Netflix and chill...',
+    action: true,
+    animation: false,
+    comedy: false,
+    documentary: false,
+    drama: false,
+    familyfriendly: false,
+    horror: false,
+    romance: false,
+    scifi: false,
+    thriller: true
+  }];
+  getData('thriller', dbConnectionTest, (err, result)=>{
+    if (err) console.log(err);
+    t.deepEqual(result, expected, 'getData returns expected data');
+    t.end();
+  })
 })
