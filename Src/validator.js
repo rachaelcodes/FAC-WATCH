@@ -30,6 +30,21 @@ const validateFaclocation = (faclocation) => {
 
 };
 
+const validateMoviename = (moviename) => {
+  try {
+    if (typeof moviename !== 'string') {
+      throw new Error ('Your movie name must be a string') ;
+    } else if (moviename.length > 40) {
+      throw new Error ('Your movie name is too long') ;
+    } else if (moviename.length == 0 ) {
+      throw new Error ('Please Enter your movie name') ;
+    }
+    return {isValid:true};
+  } catch (e) {
+    return {isValid:false, message: e.message};
+  }
+
+};
 
 const validateCohort = (cohort) => {
   try {
@@ -43,5 +58,33 @@ const validateCohort = (cohort) => {
 
 };
 
+const validateDescription = (description) => {
+  try {
+    if (typeof description !== 'string') {
+      throw new Error ('Your description must be a string') ;
+    } else if (description.length == 0 ) {
+      throw new Error ('Please Enter your description') ;
+    }
+    return {isValid:true};
+  } catch (e) {
+    return {isValid:false, message: e.message};
+  }
 
-module.exports = {validateFaccer,validateFaclocation,validateCohort};
+};
+
+const validateRating = (rating) => {
+  try {
+    if (!Number.isInteger(rating)) {
+      throw new Error ('Your rating value must be an integer') ;
+    }
+    if (rating <= 0 || rating > 5) {
+      throw new Error ('Your rating should be in the range of 1 to 5');
+    }
+    return {isValid:true};
+  } catch (e) {
+    return {isValid:false, message: e.message};
+  }
+
+};
+
+module.exports = {validateFaccer,validateFaclocation,validateCohort, validateDescription, validateMoviename, validateRating};
