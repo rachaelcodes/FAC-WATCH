@@ -4,6 +4,9 @@ const validate = require( '../src/validator');
 const getData = require('../src/queries/get-data');
 const dbConnectionTest = require ('./db-connections-test.js');
 const postData = require('../src/queries/post-data');
+const dbbuild = require('./db-build-test');
+
+
 
 tape('Validate Faccer', (t) => {
   let result = validate.validateFaccer (333) ;
@@ -56,6 +59,7 @@ tape('Validate Cohort', (t) => {
 })
 
 tape('get Data', (t)=> {
+  dbbuild;
   let expected = [{
     id: 3,
     faccer: 'Yahia',
@@ -84,6 +88,7 @@ tape('get Data', (t)=> {
 
 
 tape('Post Data', (t)=> {
+  dbbuild;
   let expected = [{
     id: 5,
     faccer: 'Minesh',
