@@ -46,11 +46,13 @@ body {
   max-width: 70%;
   margin: auto;
   min-height: 100vh;
+
 }
 
 #header {
   background-color: #003638;
   color: white;
+	font-family: 'Special Elite', cursive;
 }
 
 #nav {
@@ -89,10 +91,169 @@ body {
 }
 
 h1{
-  font-size: 2rem;
+  font-size: 3rem;
+	font-family: 'Special Elite', cursive;
+	text-align: center;
+}
+
+h2{
+font-size: 2rem ;
+font-family: 'Special Elite', cursive;
+text-align: center;
 }
 
 #nav a{
   color: white;
   text-decoration: none;
+}
+
+#genre{
+
+	width: 100%;
+
+}
+
+#findsubmit{
+	padding: 19px 39px 18px 39px;
+	color: white;
+	background-color:  #A2001D;
+	font-size: 18px;
+	text-align: center;
+	font-style: normal;
+	border-radius: 5px;
+	width: 100%;
+	border: 1px solid  #A2001D;
+	border-width: 1px 1px 3px;
+	box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+	margin-bottom: 10px;
+}
+
+/*form css*/
+
+form {max-width: 300px;
+margin: 10px auto;
+padding: 10px 20px;
+background: black;
+border-radius: 8px;
+}
+
+label{
+	font-size: 25px;
+	font-family: 'Oswald', sans-serif;
+}
+
+input[type="text"],input[type="number"], textarea, select {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 5px;
+font-size: 14px;
+height: auto;
+margin: 0;
+padding: 15px;
+width: 90%;
+background-color: #e8eeef;
+color: #8a97a0;
+box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+margin-bottom: 30px;
+}
+ input[type="checkbox"] {
+margin: 0 4px 8px 0;
+}
+input:focus {
+background-color: #FF9811;
+}
+message:focus {
+background-color: #FF9811;
+}
+select {
+padding: 6px;
+height: 32px;
+border-radius: 2px;
+}
+button {
+padding: 19px 39px 18px 39px;
+color: white;
+background-color:  #A2001D;
+font-size: 18px;
+text-align: center;
+font-style: normal;
+border-radius: 5px;
+width: 100%;
+border: 1px solid  #A2001D;
+border-width: 1px 1px 3px;
+box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+margin-bottom: 10px;
+}
+fieldset {
+margin-bottom: 30px;
+border: none;
+}
+
+label {
+display: block;
+margin-bottom: 8px;
+}
+label.light {
+font-weight: 300;
+display: inline;
+}
+
+/*navbar css */
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color:  #A2001D;
+opacity: 0.6;
+filter: alpha(opacity=40);
+}
+li {
+float: centre;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 12px 16px;
+text-decoration: none;
+font-size: 34px;
+font-family: 'Handlee', cursive;
+}
+a:hover:not(.active) {
+background-color: white;
+}
+.active {
+background-color: #A2001D;
+}
+img {
+max-width: 100%;
+/height: auto;/
+border-radius: 15px 15px 15px 15px;
+padding: 7px 10px 10px 7px;
+}
+.Pink-Box {
+background-color: #A2001D;
+padding: 10px;
+color: white;
+opacity: 0.6;
+filter: alpha(opacity=40);
+}
+.Button-Styling {
+/width: 84px;
+height: 45px;/
+background: transparent;
+border: none;
+color:#F54F78;
+font-size:20px;
+font-family: 'Special Elite', cursive;
+}
+option {
+	/width: 84px;
+	height: 45px;/
+	background: transparent;
+	border: none;
+	color:#F54F78;
+	font-size:20px;
+	font-family: 'Special Elite', cursive;
 }
