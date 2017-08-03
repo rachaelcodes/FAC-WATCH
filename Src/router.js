@@ -40,9 +40,48 @@ const router = (req, response) => {
     }
   });
  }
-else if (req.url.includes('/review-film')) {
+else if (req.url.split('/')[1] === 'review-film') {
+  let data = '';
+  req.on('data', function(chunk) {
+      data += chunk;
+  });
+  req.on('end', () => {
+    console.log('request made');
+    console.log('data', data);
+      const name = queryString.parse(data).name;
+      console.log('name', name);
+      const location = queryString.parse(data).location;
+      const cohortNumber = queryString.parse(data).cohortNumber;
+      const moviename = queryString.parse(data).moviename;
+      const ratingnumber = queryString.parse(data).ratingnumber;
+      const description = queryString.parse(data).description;
 
-console.log(req.url);
+      if (validator.validateAll(name, location, moviename, cohortNumber, description, ratingnumber).isValid) {
+        console.log('entry is valid');
+        postData(name, cohortNumber, location, moviename, ratingnumber, description, action, animation, comedy, documentary, drama, familyfriendly, horror, romance, scifi, thriller, dbConnections,(err, res) => {
+          if (err) {
+            response.writeHead(500, 'Content-Type:text/html');
+            response.end('<h1>Sorry, there was a problem adding that movie</h1>');
+            console.log(err)
+          }
+        });
+
+      } else {
+//Add something to send the error message to the DOM.
+      }
+
+      response.writeHead(200, {
+          "Content-Type": "text/html"
+      });
+      fs.readFile(__dirname + "/../public/index.html", function(error, file) {
+          if (error) {
+              console.log(error);
+              return;
+          } else {
+              response.end(file);
+          }
+      });
+  });
 }
   else {
   const fileName = req.url;
