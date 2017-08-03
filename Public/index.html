@@ -50,28 +50,28 @@
     <h2>Recommend a film to FACcers:</h2>
     <form id='recommendfilm' method='post' action="/review-film">
       <label for="name">Your name:</label>
-      <input type="text" id="name"><br>
+      <input id='name' type="text" id="name"><br>
       <label for="location">FAC location:</label>
-      <input type="text" id="location"><br>
+      <input id='location' type="text" id="location"><br>
       <label for="cohort">Cohort number:</label>
-      <input type="number" id="cohort"><br>
+      <input id='cohortnumber' type="number" id="cohort"><br>
       <label for="moviename">Movie name:</label>
-      <input type="text" id="moviename"><br>
+      <input id='moviename' type="text" id="moviename"><br>
       <label for="rating">Rating 1-5:</label>
-      <input type="number" id="rating"><br>
+      <input id='ratingnumber' type="number" id="rating"><br>
       <label for="description">Movie desciption:</label>
       <input type="text" id="description"><br>
 
-      <input type="checkbox" id="genre1" value="action"> Action<br>
-      <input type="checkbox" id="genre2" value="animation"> Animation<br>
-      <input type="checkbox" id="genre3" value="comedy"> Comedy<br>
-      <input type="checkbox" id="genre4" value="documentary"> Documentary<br>
-      <input type="checkbox" id="genre5" value="drama"> Drama<br>
-      <input type="checkbox" id="genre6" value="familyfriendly"> Family-Friendly<br>
-      <input type="checkbox" id="genre7" value="horror"> Horror<br>
-      <input type="checkbox" id="genre8" value="romance"> Romance<br>
-      <input type="checkbox" id="genre9" value="scifi"> Sci-fi and Fantasy<br>
-      <input type="checkbox" id="genre10" value="thriller"> Thriller<br>
+      <input name='genres[]' type="checkbox" id="genre1" value="action"> Action<br>
+      <input name='genres[]' type="checkbox" id="genre2" value="animation"> Animation<br>
+      <input name='genres[]' type="checkbox" id="genre3" value="comedy"> Comedy<br>
+      <input name='genres[]' type="checkbox" id="genre4" value="documentary"> Documentary<br>
+      <input name='genres[]' type="checkbox" id="genre5" value="drama"> Drama<br>
+      <input name='genres[]' type="checkbox" id="genre6" value="familyfriendly"> Family-Friendly<br>
+      <input name='genres[]' type="checkbox" id="genre7" value="horror"> Horror<br>
+      <input name='genres[]' type="checkbox" id="genre8" value="romance"> Romance<br>
+      <input name='genres[]' type="checkbox" id="genre9" value="scifi"> Sci-fi and Fantasy<br>
+      <input name='genres[]' type="checkbox" id="genre10" value="thriller"> Thriller<br>
 
       <button type="submit" name="reviewsubmit">Review a film!</button>
 

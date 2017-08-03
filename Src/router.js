@@ -6,6 +6,7 @@ const dbConnections = require('./Databases/db-connections.js');
 
 const getData = require('./Queries/get-data.js');
 const postData = require('./Queries/post-data.js');
+const validator = require('./validator.js')
 
 const router = (req, response) => {
 
@@ -38,7 +39,11 @@ const router = (req, response) => {
 
     }
   });
-  }
+ }
+else if (req.url.includes('/review-film')) {
+
+console.log(req.url);
+}
   else {
   const fileName = req.url;
   const fileType = req.url.split(".")[1];
