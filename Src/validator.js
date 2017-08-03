@@ -20,8 +20,6 @@ const validateFaclocation = (faclocation) => {
       throw new Error ('Your location must be a string') ;
     } else if (faclocation.length > 20) {
         throw new Error ('Your location length is too long') ;
-      }else if (faclocation.length == 0 ) {
-        throw new Error ('Please Enter your FAC location') ;
       }
     return {isValid:true};
   } catch (e) {
@@ -31,4 +29,17 @@ const validateFaclocation = (faclocation) => {
 };
 
 
-module.exports = {validateFaccer,validateFaclocation};
+const validateCohort = (cohort) => {
+  try {
+    if (!Number.isInteger(cohort)) {
+      throw new Error ('Your cohort value must be an integer') ;
+    }
+    return {isValid:true};
+  } catch (e) {
+    return {isValid:false, message: e.message};
+  }
+
+};
+
+
+module.exports = {validateFaccer,validateFaclocation,validateCohort};

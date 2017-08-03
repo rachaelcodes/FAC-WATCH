@@ -24,20 +24,30 @@ tape('Validate Faccer', (t) => {
 tape('Validate Location', (t) => {
   let result = validate.validateFaclocation (333) ;
   t.equal(result.message, 'Your location must be a string', 'Correct error message is supplied when we pass in a number');
-  t.notOk(result.isValid, 'Invalid string returns false');
+  t.notOk(result.isValid, 'Invalid entry returns false');
 
   result = validate.validateFaclocation("llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch");
   t.equal(result.message, 'Your location length is too long', 'Correct error message for long locations')
   t.notOk(result.isValid, 'Long location string returns false');
 
-  result = validate.validateFaclocation("");
-  t.equal(result.message, 'Please Enter your FAC location', 'Correct error message for empty location')
-  t.notOk(result.isValid, 'Empty location string returns false');
-
-
-
    result = validate.validateFaclocation ('London');
   t.ok(result.isValid, 'Valid location returns true');
+
+  t.end();
+})
+
+
+tape('Validate Cohort', (t) => {
+  let result = validate.validateCohort (333.2) ;
+  t.equal(result.message, 'Your cohort value must be an integer', 'Correct error message is supplied when we pass in a decimal');
+  t.notOk(result.isValid, 'Invalid number returns false');
+
+  result = validate.validateCohort ('eleven') ;
+  t.equal(result.message, 'Your cohort value must be an integer', 'Correct error message is supplied when we pass in a string');
+  t.notOk(result.isValid, 'Invalid string returns false');
+
+   result = validate.validateCohort (11);
+  t.ok(result.isValid, 'Valid cohort number returns true');
 
   t.end();
 })
