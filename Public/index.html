@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>FAC-watch ;)</title>
-  <link rel="stylesheet" href="./Public/style.css" media="screen" title="no title">
-  <link rel="shortcut icon" type="image/png" href="./Public/favicon.png">
+  <link rel="stylesheet" href="style.css" media="screen" title="no title">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -25,7 +25,7 @@
     <form id='findform' action="/find-film" method="get">
       <label for='genre'>Select Film Genre:</label>
 
-      <select name='genre'>
+      <select name='genre' id="genre">
         <option value="Action<">Action</option>
         <option value="Animation">Animation</option>
         <option value="Comedy">Comedy</option>
@@ -38,7 +38,7 @@
         <option value="Thriller">Thriller</option>
       </select>
 
-      <button type="submit" name="findsubmit">Find a film!</button>
+      <input type="submit" value="Find a film!" name="findsubmit">
     </form>
 
   </section>
@@ -78,8 +78,9 @@
     </form>
 
   </section>
+<script src="index.js" type="text/javascript"></script>
 
 </body>
 
-<script src="./Public/index.js" type="text/javascript"></script>
+
 </html>
