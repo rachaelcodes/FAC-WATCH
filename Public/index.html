@@ -9,18 +9,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
-  <header>
+<body style="background-image: url('./Assets/background.png');">
+  <div id="main" style="max-width: 70%; margin: auto;">
+  <header id='header' style="background-color: #003638; color: white;">
     <h1>FACwatch!</h1></header>
 
-  <nav class='nav'>
+  <nav class='nav' id='nav' style="background-color: #A2001D; color: white;">
     <ul>
       <li><a href='#findfilm'>Find a Film</a></li>
       <li><a href='#reviewfilm'>Review a Film</a></li>
     </ul>
   </nav>
 
-  <section id='findfilm'>
+  <section id='findfilm' style="background-color: #ff9811;">
     <h2>Search to find a film recommended by FACcers:</h2>
     <form id='findform' action="/find-film" method="get">
       <label for='genre'>Select Film Genre:</label>
@@ -43,10 +44,11 @@
 
   </section>
 
-  <section id='filmresults' style='display:none;'>
+  <section id='filmresults' style='background-color: white;'>
+    <p>Some results</p>
   </section>
 
-  <section id='reviewfilm'>
+  <section id='reviewfilm' style="background-color: #003638; color: white;">
     <h2>Recommend a film to FACcers:</h2>
     <form id='recommendfilm' method='post' action="/review-film">
       <label for="name">Your name:</label>
@@ -78,6 +80,7 @@
     </form>
 
   </section>
+</div>
 
 </body>
 
