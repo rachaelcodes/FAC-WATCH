@@ -41,39 +41,21 @@ const router = (req, response) => {
   });
  }
 else if (req.url.split('/')[1] === 'review-film') {
-  let body = '';
+  let data = '';
   req.on('data', function(chunk) {
-      body += chunk;
+      data += chunk;
   });
   req.on('end', () => {
+    console.log('request made');
+    console.log('data', data);
+      const name = queryString.parse(data).name;
+      console.log('name', name);
+      const location = queryString.parse(data).location;
+      const cohortNumber = queryString.parse(data).cohortNumber;
+      const moviename = queryString.parse(data).moviename;
+      const ratingnumber = queryString.parse(data).ratingnumber;
+      const description = queryString.parse(data).description;
 
-      const name = queryString.parse(body).name;
-      const location = queryString.parse(body).location;
-      const cohortNumber = queryString.parse(body).cohortnumber;
-      const moviename = queryString.parse(body).moviename;
-      const ratingnumber = queryString.parse(body).ratingnumber;
-      const description = queryString.parse(body).description;
-      const action = Boolean(queryString.parse(body).action);
-      const animation = Boolean(queryString.parse(body).animation);
-      const comedy = Boolean(queryString.parse(body).comedy);
-      const documentary = Boolean(queryString.parse(body).documentary);
-      const drama = Boolean(queryString.parse(body).drama);
-      const familyfriendly = Boolean(queryString.parse(body).familyfriendly);
-      const horror = Boolean(queryString.parse(body).horror);
-      const romance = Boolean(queryString.parse(body).romance);
-      const scifi = Boolean(queryString.parse(body).scifi);
-      const thriller = Boolean(queryString.parse(body).thriller);
-
-      console.log('the information to pass on', name, location, cohortNumber, moviename, ratingnumber, description, action, animation, comedy, documentary, drama, familyfriendly, horror, romance, scifi, thriller )
-
-
-      // postData(name, cohortNumber, location, moviename, ratingnumber, description, action, animation, comedy, documentary, drama, familyfriendly, horror, romance, scifi, thriller, dbConnections,(err, res) => {
-      //   if (err) {
-      //     response.writeHead(500, 'Content-Type:text/html');
-      //     response.end('<h1>Sorry, there was a problem adding that movie</h1>');
-      //     console.log(err)
-      //   }
-      // });
       if (validator.validateAll(name, location, moviename, cohortNumber, description, ratingnumber).isValid) {
         console.log('entry is valid');
         postData(name, cohortNumber, location, moviename, ratingnumber, description, action, animation, comedy, documentary, drama, familyfriendly, horror, romance, scifi, thriller, dbConnections,(err, res) => {
