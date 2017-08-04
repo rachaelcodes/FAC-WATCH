@@ -1,4 +1,3 @@
-//write validators for movie name, rating, and description.  dont forget to do tests aswell !
 const validateAll = (faccer, faclocation, moviename, cohort, description, rating) => {
   try {
     if (!validateFaccer(faccer).isValid) {
@@ -88,7 +87,7 @@ const validateMoviename = (moviename) => {
 
 const validateCohort = (cohort) => {
   try {
-    if (!Number.isInteger(parseInt(cohort))) {
+    if (!Number.isInteger(parseFloat(cohort))) {
       throw new Error('Your cohort value must be an integer');
     }
     return {
@@ -124,7 +123,7 @@ const validateDescription = (description) => {
 
 const validateRating = (rating) => {
   try {
-    if (!Number.isInteger(parseInt(rating))) {
+    if (!Number.isInteger(parseFloat(rating))) {
       throw new Error('Your rating value must be an integer');
     }
     if (rating <= 0 || rating > 5) {

@@ -85,7 +85,10 @@ else if (req.url.split('/')[1] === 'review-film') {
         });
 
       } else {
-//Add something to send the error message to the DOM.
+        console.log(validator.validateAll(name, location, moviename, cohortNumber, description, ratingnumber).message);
+        //Add something to send the error message to the DOM.
+        response.writeHead(400, 'Content-Type:text/html');
+        response.end('<h1>400</h1>'+validator.validateAll(name, location, moviename, cohortNumber, description, ratingnumber).message);
       }
 
       response.writeHead(200, {

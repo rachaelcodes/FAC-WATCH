@@ -154,28 +154,12 @@ tape('get Data', (t)=> {
 
 tape('Post Data', (t)=> {
   dbbuild;
-  let expected = [{
-    id: 5,
-    faccer: 'Minesh',
-    cohort: 11,
-    faclocation: 'London',
-    moviename: 'The Hangover',
-    rating: 5,
-    description: 'When in Vegas...',
-    action: false,
-    animation: false,
-    comedy: true,
-    documentary: false,
-    drama: false,
-    familyfriendly: false,
-    horror: false,
-    romance: false,
-    scifi: false,
-    thriller: false
-  }];
   postData('Minesh', 11, 'London', 'The Hangover', 5, 'When in Vegas...', false, false, true, false, false, false, false, false, false, false, dbConnectionTest, (err, result)=>{
     if (err) console.log(err);
-    t.deepEqual(result, expected, 'PostData returns expected data');
-    t.end();
+    getData('comedy', dbConnectionTest, (err, result)=>{
+      if (err) console.log(err);
+      t.deepEqual(result.length, 3, 'postData returns expected data');
+      t.end();
+    })
   })
 })
