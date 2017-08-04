@@ -52,19 +52,19 @@
 
   <section id='reviewfilm'>
     <h2>Recommend a film to FACcers:</h2>
-    <form id='recommendfilm' method='post' action="/review-film">
+    <form id='recommendfilm' action="/recommend-film" method="post">
       <label for="name">Your name:</label>
       <input id='name' name="name" type="text"><br>
       <label for="location">FAC location:</label>
-      <input id='location' type="text"><br>
+      <input id='location' name="location" type="text"><br>
       <label for="cohort">Cohort number:</label>
-      <input id='cohortnumber' type="number"><br>
+      <input id='cohortnumber' name="cohortnumber" type="number"><br>
       <label for="moviename">Movie name:</label>
-      <input id='moviename' type="text"><br>
+      <input id='moviename' name="moviename" type="text"><br>
       <label for="rating">Rating 1-5:</label>
-      <input id='ratingnumber' type="number"><br>
+      <input id='ratingnumber' name="ratingnumber" type="number"><br>
       <label for="description">Movie desciption:</label>
-      <input id="description" type="text"><br>
+      <input id="description" name="description" type="text"><br>
 
       <input name='genres[]' type="checkbox" id="genre1" value="action"> Action<br>
       <input name='genres[]' type="checkbox" id="genre2" value="animation"> Animation<br>
@@ -77,7 +77,8 @@
       <input name='genres[]' type="checkbox" id="genre9" value="scifi"> Sci-fi and Fantasy<br>
       <input name='genres[]' type="checkbox" id="genre10" value="thriller"> Thriller<br>
 
-      <button type="submit" name="reviewsubmit">Review a film!</button>
+      <!-- <button type="submit" name="reviewsubmit">Review a film!</button> -->
+      <input type="submit" value="submit">
 
     </form>
     <section id="error-message">
